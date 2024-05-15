@@ -1,4 +1,6 @@
-﻿'Public Class Form1
+﻿'old code
+'-------------------------------
+'Public Class Form1
 '    Private Sub Form1_KeyDown(sender As Object, e As KeyEventArgs) Handles Me.KeyDown
 '        Dim stepSize As Integer = 18
 '        Select Case e.KeyCode
@@ -47,15 +49,18 @@
 
 
 'End Class
+'-------------------------------
 
+
+'Start Engine Project
 
 
 Imports System.Reflection.Emit
 
-Public Class Form1
+Public Class Engine_Form
     Private hasCollided As Boolean = False
 
-    Private Sub Form1_KeyDown(sender As Object, e As KeyEventArgs) Handles Me.KeyDown
+    Private Sub Engine_Form_KeyDown(sender As Object, e As KeyEventArgs) Handles Me.KeyDown
         Select Case e.KeyCode
             Case Keys.Up
                 MovePictureBox(PictureBox1, 0, -5)
