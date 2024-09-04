@@ -75,11 +75,11 @@ Partial Class Engine_Form
         ' Label1
         ' 
         Label1.AutoSize = True
-        Label1.Font = New Font("Star Jedi_Cyrillic", 11.25F, FontStyle.Bold, GraphicsUnit.Point, CByte(204))
+        Label1.Font = New Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold, GraphicsUnit.Point, CByte(204))
         Label1.ForeColor = SystemColors.ControlDarkDark
         Label1.Location = New Point(310, 53)
         Label1.Name = "Label1"
-        Label1.Size = New Size(274, 24)
+        Label1.Size = New Size(181, 18)
         Label1.TabIndex = 3
         Label1.Text = "click Enter for interract"
         Label1.Visible = False
@@ -138,9 +138,9 @@ Partial Class Engine_Form
         PictureBox4.TabIndex = 0
         PictureBox4.TabStop = False
         ' 
-        ' Form1
+        ' Engine_Form
         ' 
-        AutoScaleDimensions = New SizeF(7.0F, 15.0F)
+        AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(800, 450)
         Controls.Add(GroupBox1)
@@ -149,7 +149,7 @@ Partial Class Engine_Form
         Controls.Add(PictureBox2)
         Controls.Add(PictureBox1)
         Icon = CType(resources.GetObject("$this.Icon"), Icon)
-        Name = "Form1"
+        Name = "Engine_Form"
         Text = "Form1"
         CType(PictureBox1, ComponentModel.ISupportInitialize).EndInit()
         CType(PictureBox2, ComponentModel.ISupportInitialize).EndInit()

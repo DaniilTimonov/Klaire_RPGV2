@@ -93,7 +93,7 @@ Public Class Engine_Form
             PictureBox3.Visible = True
             Label1.Visible = True
 
-            Return ' Не двигаем, если будет столкновение
+            Return ' Не двигаем, если будет столкновение ddd
 
         Else
             hasCollided = False
@@ -116,5 +116,9 @@ Public Class Engine_Form
 
     Private Sub PictureBox6_Click(sender As Object, e As EventArgs) Handles PictureBox6.Click
         GroupBox1.Visible = False
+    End Sub
+
+    Private Sub PictureBox5_Click(sender As Object, e As EventArgs) Handles PictureBox5.Click
+
     End Sub
 End Class
