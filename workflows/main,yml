@@ -1,4 +1,4 @@
-name: Node.js CI
+name: .NET CI
 
 on:
   push:
@@ -12,12 +12,27 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
-    - name: Set up Node.js
-      uses: actions/setup-node@v2
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v2
       with:
-        node-version: '14'
-    - run: npm install
-    - run: npm run lint # Статический анализ
-    - run: npm test # Юнит-тесты
-    - run: npm run test:integration # Интеграционные тесты
+        dotnet-version: '7.0.x' # Укажите версию .NET, которую вы используете
+
+    - name: Install dependencies
+      run: dotnet restore
+
+    - name: Build
+      run: dotnet build --no-restore
+
+    - name: Run unit tests
+      run: dotnet test --no-build --verbosity normal
+
+    - name: Static code analysis
+      run: dotnet tool install --global dotnet-sonarscanner
+      env:
+        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }} # Убедитесь, что у вас есть токен SonarQube в секретах репозитория
+    - run: dotnet sonarscanner begin /k:"your_project_key" /d:sonar.login="${{ secrets.SONAR_TOKEN }}"
+    - run: dotnet build
+    - run: dotnet sonarscanner end /d:sonar.login="${{ secrets.SONAR_TOKEN }}"
