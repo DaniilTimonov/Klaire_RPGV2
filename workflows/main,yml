@@ -18,4 +18,6 @@ jobs:
       with:
         node-version: '14'
     - run: npm install
-    - run: npm test
+    - run: npm run lint # Статический анализ
+    - run: npm test # Юнит-тесты
+    - run: npm run test:integration # Интеграционные тесты
